@@ -1,0 +1,10 @@
+{
+  "title": "Neighbour",
+  "platform": "TryHackMe",
+  "difficulty": "easy",
+  "tags": ["Web", "IDOR"],
+  "points": 30,
+  "date": "11-05-2026",
+  "status": "completed",
+  "featured": false
+}
