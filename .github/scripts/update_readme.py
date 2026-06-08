@@ -123,7 +123,7 @@ def main() -> None:
         return
 
     # Sort: newest date first, then alphabetically by title
-    writeups.sort(key=lambda w: (w["date"], w["title"]), reverse=True)
+    writeups.sort(key=lambda w: w["date"], reverse=True)
 
     table = build_table(writeups)
     update_readme(readme_path, table)
