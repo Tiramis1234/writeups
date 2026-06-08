@@ -40,7 +40,6 @@ def load_meta(folder: Path) -> dict | None:
         print(f"Skipping {folder.name}: missing fields: {missing}", file=sys.stderr)
         return None
 
-    meta["_folder"] = folder.name
     return meta
 
 
@@ -107,16 +106,17 @@ def main() -> None:
     writeups: list[dict] = []
     skip_dirs = {".git", ".github", "node_modules", "__pycache__"}
 
-    for entry in sorted(root.iterdir()):
-        if not entry.is_dir():
-            continue
-        if entry.name.startswith(".") or entry.name in skip_dirs:
+    for meta_path in root.rglob("meta.json"):
+        folder = meta_path.parent
+        rel = folder.relative_to(root)
+        if any(part.startswith(".") or part in skip_dirs for part in rel.parts):
             continue
 
-        meta = load_meta(entry)
+        meta = load_meta(folder)
         if meta:
+            meta["_folder"] = str(rel.as_posix())
             writeups.append(meta)
-            print(f"  ✓  {entry.name}: {meta['title']}")
+            print(f"  ✓  {rel}: {meta['title']}")
 
     if not writeups:
         print("No write-ups found — nothing to do.")
