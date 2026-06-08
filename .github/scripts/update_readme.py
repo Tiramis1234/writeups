@@ -6,6 +6,7 @@ import sys
 import argparse
 from datetime import date
 from pathlib import Path
+from urllib.parse import quote
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
@@ -61,7 +62,7 @@ def build_table(writeups: list[dict]) -> str:
         dt        = w["date"]
 
         lines.append(
-            f"| [{title}](./{folder}/) | {platform} | {diff} | {tags} | {points} | {dt} |"
+            f"| [{title}](./{quote(folder, safe='/')}/) | {platform} | {diff} | {tags} | {points} | {dt} |"
         )
 
     return "\n".join(lines)

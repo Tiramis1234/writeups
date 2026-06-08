@@ -9,6 +9,6 @@
 | Challenge | Platform | Difficulty | Tags | Points | Date |
 |-----------|----------|------------|------|-------:|------|
 | [Challenge Name](./example/) | EXample Platform | none | example, tags | 0 | today |
-| [Cache Me Outside](./thm/Cache Me Outside/) | TryHackMe | medium | OSINT, Web | 225 | 08-06-2026 |
+| [Cache Me Outside](./thm/Cache%20Me%20Outside/) | TryHackMe | medium | OSINT, Web | 225 | 08-06-2026 |
 
 <!-- WRITEUPS:END -->
