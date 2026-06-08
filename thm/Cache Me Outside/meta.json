@@ -1,0 +1,10 @@
+{
+  "title": "Cache Me Outside",
+  "platform": "TryHackMe",
+  "difficulty": "medium",
+  "tags": ["OSINT", "Web"],
+  "points": 225,
+  "date": "08-06-2026",
+  "status": "completed",
+  "featured": false
+}
