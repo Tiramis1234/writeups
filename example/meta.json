@@ -1,0 +1,10 @@
+{
+  "title": "Challenge Name",
+  "platform": "TryHackMe",
+  "difficulty": "medium",
+  "tags": ["web", "privesc"],
+  "points": 300,
+  "date": "2025-06-08",
+  "status": "rooted",
+  "featured": false
+}

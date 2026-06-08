@@ -1,0 +1,44 @@
+name: Update README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/meta.json"   # only run when a meta.json changes
+      - "README.md"      # or when README is edited directly
+
+  workflow_dispatch:     # allow manual triggering from the Actions tab
+
+permissions:
+  contents: write        # needed so the bot can commit back
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so git log works
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate write-up table
+        run: python .github/scripts/update_readme.py
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet README.md; then
+            echo "README.md unchanged — nothing to commit."
+          else
+            git add README.md
+            git commit -m "chore: auto-update write-up table [skip ci]"
+            git push
+          fi
