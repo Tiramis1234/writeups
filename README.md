@@ -8,6 +8,6 @@
 
 | Challenge | Platform | Difficulty | Tags | Points | Date |
 |-----------|----------|------------|------|-------:|------|
-| [Challenge Name](./example/) | EXample Platform | none | example, tags | 67 | today |
+| [Challenge Name](./example/) | EXample Platform | none | example, tags | 0 | today |
 
 <!-- WRITEUPS:END -->
